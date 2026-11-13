@@ -132,7 +132,7 @@ const estilos = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
   },
   titulo: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#2d3748",
     textAlign: "center",
