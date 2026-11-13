@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
-  ScrollView,
-  StyleSheet,
+  View,
   Text,
   TouchableOpacity,
-  View,
+  ScrollView,
+  StyleSheet,
 } from "react-native";
 
 type Registro = {
@@ -35,6 +35,20 @@ export default function App() {
     ]);
   };
 
+  // RETO 1: restar (quita el registro más reciente)
+  const restarContador = () => {
+    if (contador > 0) {
+      setContador(contador - 1);
+      setRegistros(registros.slice(1));
+    }
+  };
+
+  // RETO 1: reiniciar a cero
+  const reiniciarContador = () => {
+    setContador(0);
+    setRegistros([]);
+  };
+
   return (
     <View style={estilos.body}>
       <View style={estilos.card}>
@@ -49,6 +63,19 @@ export default function App() {
         <TouchableOpacity style={estilos.btnClick} onPress={incrementarContador}>
           <Text style={estilos.btnText}>¡Haz Clic Aquí!</Text>
         </TouchableOpacity>
+
+        {/* Botones del Reto 1 */}
+        <View style={estilos.filaBotones}>
+          <TouchableOpacity style={estilos.btnRestar} onPress={restarContador}>
+            <Text style={estilos.btnTextPequeno}>Restar Like</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={estilos.btnReiniciar}
+            onPress={reiniciarContador}
+          >
+            <Text style={estilos.btnTextPequeno}>Reiniciar</Text>
+          </TouchableOpacity>
+        </View>
 
         {/* Tabla de registros */}
         <View style={estilos.tableContainer}>
@@ -123,6 +150,28 @@ const estilos = StyleSheet.create({
   btnText: {
     color: "#ffffff",
     fontSize: 16,
+    fontWeight: "bold",
+  },
+  filaBotones: {
+    flexDirection: "row",
+    gap: 10,
+    marginTop: 12,
+  },
+  btnRestar: {
+    backgroundColor: "#f39c12",
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+  },
+  btnReiniciar: {
+    backgroundColor: "#95a5a6",
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+  },
+  btnTextPequeno: {
+    color: "#ffffff",
+    fontSize: 14,
     fontWeight: "bold",
   },
   tableContainer: {
