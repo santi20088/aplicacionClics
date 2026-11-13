@@ -1,4 +1,6 @@
-import { useState } from "react";
+
+// Contador de clics en React Native - Taller SENA
+// Autor: TU NOMBREimport { useState } from "react";
 import {
   ScrollView,
   StyleSheet,
