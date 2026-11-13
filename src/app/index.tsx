@@ -142,7 +142,7 @@ const estilos = StyleSheet.create({
     fontSize: 14,
     color: "#555",
     textAlign: "center",
-    marginBottom: 16,
+    marginBottom: 18,
   },
   counterBox: {
     fontSize: 56,
