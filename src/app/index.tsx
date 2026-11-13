@@ -154,7 +154,7 @@ const estilos = StyleSheet.create({
     color: "#e74c3c", // RETO 2: número rojo
   },
   btnClick: {
-    backgroundColor: "#2ecc71",
+    backgroundColor: "#27ae60",
     paddingVertical: 12,
     paddingHorizontal: 28,
     borderRadius: 8,
