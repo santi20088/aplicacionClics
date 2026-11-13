@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-  View,
-  Text,
-  TouchableOpacity,
   ScrollView,
   StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 type Registro = {
@@ -49,8 +49,11 @@ export default function App() {
     setRegistros([]);
   };
 
+  // RETO 2: reactividad. El estilo depende del estado, sin tocar ningún DOM
+  const superaLimite = contador > 10;
+
   return (
-    <View style={estilos.body}>
+    <View style={[estilos.body, superaLimite && estilos.bodyAlto]}>
       <View style={estilos.card}>
         <Text style={estilos.titulo}>Interactividad con React Native</Text>
         <Text style={estilos.subtitulo}>
@@ -58,7 +61,9 @@ export default function App() {
           exacta del evento en la tabla.
         </Text>
 
-        <Text style={estilos.counterBox}>{contador}</Text>
+        <Text style={[estilos.counterBox, superaLimite && estilos.counterAlto]}>
+          {contador}
+        </Text>
 
         <TouchableOpacity style={estilos.btnClick} onPress={incrementarContador}>
           <Text style={estilos.btnText}>¡Haz Clic Aquí!</Text>
@@ -110,6 +115,9 @@ const estilos = StyleSheet.create({
     justifyContent: "center",
     padding: 16,
   },
+  bodyAlto: {
+    backgroundColor: "#fff1f1", // RETO 2: fondo rosado
+  },
   card: {
     backgroundColor: "#ffffff",
     borderRadius: 16,
@@ -139,6 +147,9 @@ const estilos = StyleSheet.create({
     fontWeight: "bold",
     color: "#3498db",
     marginBottom: 16,
+  },
+  counterAlto: {
+    color: "#e74c3c", // RETO 2: número rojo
   },
   btnClick: {
     backgroundColor: "#2ecc71",
