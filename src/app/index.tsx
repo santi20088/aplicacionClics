@@ -189,7 +189,7 @@ const estilos = StyleSheet.create({
   },
   tableContainer: {
     width: "100%",
-    marginTop: 20,
+    marginTop: 24,
     borderWidth: 1,
     borderColor: "#e0e0e0",
     borderRadius: 6,
